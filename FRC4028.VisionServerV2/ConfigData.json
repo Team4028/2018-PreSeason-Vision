@@ -1,0 +1,60 @@
+﻿{
+  "target_camera": {
+    "usb_camera": 0,
+    "horizontal_resolution": 1024,
+    "vertical_resolution": 768,
+    "brightness": 120,
+    "contrast": 128,
+    "sharpness": null,
+    "saturation": 128,
+    "exposure": -11,
+    "gain": 0,
+    "target_fps": 25
+  },
+  "target_color_bounds": {
+    "lower": {
+      "h": 5,
+      "s": 0,
+      "v": 0
+    },
+    "upper": {
+      "h": 80,
+      "s": 255,
+      "v": 255
+    }
+  },
+  "target_ratios": {
+    "h2wRatio_min": 0.2,
+    "h2wRatio_max": 0.53,
+    "areaRatio_min": 1.75,
+    "areaRatio_max": 2.1
+  },
+  "vision_data_server": {
+    "is_enabled": true,
+    "tcp_port": 6060,
+    "msg_format": "v2"
+  },
+  "network_tables_client": {
+    "is_enabled": true,
+    "server_ip_addr": "10.40.28.2",
+    "tcp_port": 1735,
+    "table_name": "VisionData"
+  },
+  "dist_est_polynominal_coefficients": {
+    "a3": -0.000001,
+    "a2": 0.001388,
+    "a1": -0.783982,
+    "a0": 239.332871
+  },
+  "mpeg_server": {
+    "is_enabled": true,
+    "tcp_port": 8080,
+    "image_width": 640,
+    "image_height": 480
+  },
+  "usb_blink_stick": {
+    "is_enabled": true,
+    "on_target_threshold": 100,
+    "heartbeat_interval_msec":  1000
+  }
+}

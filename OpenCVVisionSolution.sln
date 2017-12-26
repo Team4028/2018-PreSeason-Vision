@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRC4028.SocketClient", "FRC4028.SocketClient\FRC4028.SocketClient.csproj", "{BF326F6D-4E0E-4BB4-BD88-E85308FB5487}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRC4028.VisionServerV2", "FRC4028.VisionServerV2\FRC4028.VisionServerV2.csproj", "{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Refs", "External Refs", "{5EF91085-3437-467F-BAB5-5CA6C264FCF5}"
+	ProjectSection(SolutionItems) = preProject
+		External Refs\BlinkStickDotNet.dll = External Refs\BlinkStickDotNet.dll
+		External Refs\BlinkStickDotNet.pdb = External Refs\BlinkStickDotNet.pdb
+		External Refs\HidSharp.dll = External Refs\HidSharp.dll
+		External Refs\HidSharp.pdb = External Refs\HidSharp.pdb
+		External Refs\LibUsbDotNet.dll = External Refs\LibUsbDotNet.dll
+		External Refs\LibUsbDotNet.pdb = External Refs\LibUsbDotNet.pdb
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF326F6D-4E0E-4BB4-BD88-E85308FB5487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF326F6D-4E0E-4BB4-BD88-E85308FB5487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF326F6D-4E0E-4BB4-BD88-E85308FB5487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF326F6D-4E0E-4BB4-BD88-E85308FB5487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF8B38B9-A5B7-435E-90C8-8617768E6FFA}
+	EndGlobalSection
+EndGlobal

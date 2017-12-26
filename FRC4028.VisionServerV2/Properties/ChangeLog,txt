@@ -1,0 +1,37 @@
+﻿Vision History / Change Log
+
+Ver	Who			Desc
+===	===========	====================================================================
+1.0	TomB		Original POC Version
+				Added external JSON config file
+
+1.1	PRAT		Implemented ProcessCameraFrame v1
+
+1.2	TomB		Implemented support for MPEG Streamer
+
+1.3	TomB		Implemented support for running as a Windows Service
+
+-------------------------------------------------------------------------------------
+
+2.0	TomB		Version 2 Merged .Shared & .WinSvc into 1 program
+
+2.1	TomB		Added config param for V1 & V2 style return msgs
+				Added config param for MPEG Server is_enabled
+
+2.2 TomB/JeffW	Implement ProcessCameraFrame V2
+
+2.3 TomB		Move constants to config file
+					- h2wRatio_min
+					- h2wRatio_max
+					- areaRatio_min
+					- areaRatio_max
+				Code & Config file Cleanup
+				Added NetworkTables data option
+				calc distance to target, add to results
+					add polynominal coefficients to config file
+				Added usb led status indicator
+
+2.x				(proposed) chg color of target crosshairs based on offset distance
+							add offset distance band threshholds to the config file
+
+2.w				(proposed) add addl files to solution
