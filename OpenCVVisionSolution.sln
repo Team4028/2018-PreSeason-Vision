@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Refs", "External R
 		External Refs\LibUsbDotNet.pdb = External Refs\LibUsbDotNet.pdb
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{20E0C293-11B7-4F55-80A3-8774AAF59CB1}"
+	ProjectSection(SolutionItems) = preProject
+		Proposed Hardware Layout (resize).jpg = Proposed Hardware Layout (resize).jpg
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
