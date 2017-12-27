@@ -24,3 +24,7 @@ The source code is written in C# and requires the .Net Framework v4.6.1
 You must have a version of Visual Studio 2017 to build the solution.
 
 The target platform is a small, on-board, fan-less, mini pc running Windows 10
+
+Here is the proposed hardware layout:
+
+![Proposed Hardware Layout](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Proposed%20Hardware%20Layout%20(resize).jpg)
