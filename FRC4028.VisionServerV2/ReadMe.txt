@@ -1,4 +1,9 @@
-﻿3rd Party Assemblies Used
+﻿Other Instructions
+================================
+You need to copy & un-zip the contents of the opencv.zip file to your ./bin/debug folder before execution
+
+
+3rd Party Assemblies Used
 ================================
 
 OpenCV
