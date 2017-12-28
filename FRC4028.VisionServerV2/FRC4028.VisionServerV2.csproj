@@ -44,11 +44,13 @@
     <Reference Include="BlinkStickDotNet">
       <HintPath>..\..\BlinkStickDotNet-master\BlinkStickDotNet-master\BlinkStickDotNet\bin\Debug\BlinkStickDotNet.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.UI">
-      <HintPath>..\..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.3.0.2824\libs\Emgu.CV.UI.dll</HintPath>
+    <Reference Include="Emgu.CV.UI, Version=3.3.0.2824, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External Refs\Emgu.CV.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.World">
-      <HintPath>..\..\..\..\..\..\..\..\Emgu\emgucv-windesktop 3.3.0.2824\libs\Emgu.CV.World.dll</HintPath>
+    <Reference Include="Emgu.CV.World, Version=3.3.0.2824, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External Refs\Emgu.CV.World.dll</HintPath>
     </Reference>
     <Reference Include="FRC.NetworkTables, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FRC.NetworkTables.3.1.8\lib\net46\FRC.NetworkTables.dll</HintPath>
