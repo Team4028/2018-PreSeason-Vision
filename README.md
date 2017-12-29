@@ -27,4 +27,4 @@ The target platform is a small, on-board, fan-less, mini pc running Windows 10
 
 Here is the proposed hardware layout:
 
-![Proposed Hardware Layout](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Proposed%20Hardware%20Layout%20(resize).jpg)
+![](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Images/Proposed%20Hardware%20Layout%20(resize).jpg)

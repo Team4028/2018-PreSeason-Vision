@@ -6,11 +6,11 @@
 
 1. Run Remote Desktop Connection (mstsc)
 
-	(placeholder for screen shot)
+	![](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Images/MSTSC_1.jpg)
 
 2. Connect to vision computer
 
-	(placeholder for screen shot)
+	![](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Images/MSTSC_2.jpg)
 
 3. Log In
 
