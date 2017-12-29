@@ -30,6 +30,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{327001D9-3B51-4D40-B46D-2BDC79A67F5A}"
 	ProjectSection(SolutionItems) = preProject
 		Docs\Minix Setup.md = Docs\Minix Setup.md
+		Docs\Network Tables.md = Docs\Network Tables.md
 		Docs\Remorely Viewing the Camera Stream.md = Docs\Remorely Viewing the Camera Stream.md
 		Docs\Remotely Connecting to the Vision Computer.md = Docs\Remotely Connecting to the Vision Computer.md
 		Docs\WIndows Service Setup.md = Docs\WIndows Service Setup.md
@@ -39,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{BAB779
 	ProjectSection(SolutionItems) = preProject
 		Images\MSTSC_1.jpg = Images\MSTSC_1.jpg
 		Images\MSTSC_2.jpg = Images\MSTSC_2.jpg
+		Images\Network Tables Viewer 1.jpg = Images\Network Tables Viewer 1.jpg
 		Images\Proposed Hardware Layout (resize).jpg = Images\Proposed Hardware Layout (resize).jpg
 		Images\Threads.jpg = Images\Threads.jpg
 	EndProjectSection
