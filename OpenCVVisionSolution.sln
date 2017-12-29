@@ -41,6 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{BAB779
 		Images\MSTSC_1.jpg = Images\MSTSC_1.jpg
 		Images\MSTSC_2.jpg = Images\MSTSC_2.jpg
 		Images\Network Tables Viewer 1.jpg = Images\Network Tables Viewer 1.jpg
+		Images\Network Tables Viewer 2.jpg = Images\Network Tables Viewer 2.jpg
 		Images\Proposed Hardware Layout (resize).jpg = Images\Proposed Hardware Layout (resize).jpg
 		Images\Threads.jpg = Images\Threads.jpg
 	EndProjectSection
