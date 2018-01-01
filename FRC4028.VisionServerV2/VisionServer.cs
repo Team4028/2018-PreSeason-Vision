@@ -1080,6 +1080,14 @@ namespace FRC4028.VisionServerV2
         /// <returns>System.Int32.</returns>
         int CalcEstimatedDistance(int highMiddleY, DistanceEstPolynomialCoefficientsBE coefficients)
         {
+            /*
+                 	double estDistanceInInches = (-0.000001 * Math.pow(publicTargetRawData.HighMiddleY, 3))
+		    							+ (0.001388 * Math.pow(publicTargetRawData.HighMiddleY, 2))
+		    							+ (-0.783982 * publicTargetRawData.HighMiddleY)
+		    							+ 239.332871;
+             */
+
+
             double estDistanceInInches = ((double)(coefficients.A3) * Math.Pow(highMiddleY, 3))
                                             + ((double)(coefficients.A2) * Math.Pow(highMiddleY, 2))
                                             + (double)(coefficients.A1 * highMiddleY)
