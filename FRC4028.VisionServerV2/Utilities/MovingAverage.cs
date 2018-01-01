@@ -33,7 +33,7 @@ namespace FRC4028.VisionServerV2.Utilities
             _window.Enqueue(nextValue);
             _sum += nextValue;
 
-            _currentMovingAverage = (int)((double)_sum / _window.Count);
+            _currentMovingAverage = (int)((double)_sum / (double)_window.Count);
 
             return _currentMovingAverage;
         }

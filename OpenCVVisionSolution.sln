@@ -38,12 +38,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{327001D9-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{BAB77905-08D6-4321-A739-89665815CBF7}"
 	ProjectSection(SolutionItems) = preProject
+		Images\Browser - MPEG.jpg = Images\Browser - MPEG.jpg
+		Images\Minix - IPv4.jpg = Images\Minix - IPv4.jpg
+		Images\Minix - Network.jpg = Images\Minix - Network.jpg
 		Images\MSTSC_1.jpg = Images\MSTSC_1.jpg
 		Images\MSTSC_2.jpg = Images\MSTSC_2.jpg
 		Images\Network Tables Viewer 1.jpg = Images\Network Tables Viewer 1.jpg
 		Images\Network Tables Viewer 2.jpg = Images\Network Tables Viewer 2.jpg
 		Images\Proposed Hardware Layout (resize).jpg = Images\Proposed Hardware Layout (resize).jpg
 		Images\Threads.jpg = Images\Threads.jpg
+		Images\Win Svc Config.jpg = Images\Win Svc Config.jpg
+		Images\Win Svc Install.jpg = Images\Win Svc Install.jpg
+		Images\Win Svc Interactive.jpg = Images\Win Svc Interactive.jpg
+		Images\Win Svc Stop.jpg = Images\Win Svc Stop.jpg
 	EndProjectSection
 EndProject
 Global

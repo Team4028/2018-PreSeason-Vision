@@ -21,6 +21,7 @@ namespace FRC4028.VisionServerV2.Entities
         public Point CenterPointVertTop { get; set; }
         public Point CenterPointVertBottom { get; set; }
         public Point FpsLabelPoint { get; set; }
+        public Point MpfLabelPoint { get; set; }
         public Point OffsetLabelPoint { get; set; }
 
         public Point EstDistanceLabelPoint { get; set; }

@@ -389,9 +389,10 @@ namespace FRC4028.VisionServerV2
                 System.Drawing.Point centerPointVertBottom = new System.Drawing.Point(frameCenter_X, frameCenter_Y - 100);
 
                 // calc label positions on the frame based on camera resolution
-                System.Drawing.Point fpsLabelPoint = new System.Drawing.Point((int)(.78M * frameWidth), (int)(.93M * frameHeight));
-                System.Drawing.Point offsetLabelPoint = new System.Drawing.Point((int)(.12M * frameWidth), (int)(.93M * frameHeight));
-                System.Drawing.Point estDistanceLabelPoint = new System.Drawing.Point((int)(.12M * frameWidth), (int)(.95M * frameHeight));
+                System.Drawing.Point fpsLabelPoint = new System.Drawing.Point((int)(.78M * frameWidth), (int)(.91M * frameHeight));
+                System.Drawing.Point mpfLabelPoint = new System.Drawing.Point((int)(.78M * frameWidth), (int)(.96M * frameHeight));
+                System.Drawing.Point offsetLabelPoint = new System.Drawing.Point((int)(.08M * frameWidth), (int)(.91M * frameHeight));
+                System.Drawing.Point estDistanceLabelPoint = new System.Drawing.Point((int)(.08M * frameWidth), (int)(.96M * frameHeight));
 
                 // build object containing information about the frame in general
                 return new GeneralFrameInfoBE()
@@ -404,6 +405,7 @@ namespace FRC4028.VisionServerV2
                     CenterPointVertTop = centerPointVertTop,
                     CenterPointVertBottom = centerPointVertBottom,
                     FpsLabelPoint = fpsLabelPoint,
+                    MpfLabelPoint = mpfLabelPoint,
                     OffsetLabelPoint = offsetLabelPoint,
                     EstDistanceLabelPoint = estDistanceLabelPoint
                 };
@@ -779,28 +781,16 @@ namespace FRC4028.VisionServerV2
             using (Mat res = new Mat())
             using (VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint())
             {
-                // Manage FPS averaging, calc over 10 frames
                 // increment  counter
                 _fpsLoopCounter++;
-
-                //if (_fpsLoopCounter == 1)
-                //{
-                //    // 1st time thru loop
-                //    _fpsStopWatch.Restart();
-                //}
-                //else if (_fpsLoopCounter == 10)
-                //{
-                //    // Calculate frames per sec (FPS).
-                //    // from start of 1st frame to start of 10th frame
-                //    long elapsedMsec = _fpsStopWatch.ElapsedMilliseconds;
-                //    _fps = (int)((1000.0M / elapsedMsec) * 10);
-
-                //    // reset counter
-                //    _fpsLoopCounter = 0;
-                //}
-
+                // Manage FPS averaging, calc over 10 frames
                 int elapsedMsec = (int)_fpsStopWatch.ElapsedMilliseconds;
-                _fpsMovingAverage.AddSample(elapsedMsec);
+                if (elapsedMsec > 0)
+                {
+                    _fpsMovingAverage.AddSample((int)(1000.0M / elapsedMsec));
+                }
+                // reset stopwatch to time to start of next frame
+                _fpsStopWatch.Restart();
 
                 // Read a BGR frame from the camera and store in "currentFrame"
                 _capture.Read(currentFrame);
@@ -925,9 +915,9 @@ namespace FRC4028.VisionServerV2
                         int estDistanceInches = CalcEstimatedDistance(centerOfTarget_Y, configData.DistanceEstPolynomialCoefficients);
 
                         // write the offset amount to the frame
-                        CvInvoke.PutText(currentFrame, $"Offset: {deltaX},{deltaY}", frameInfo.OffsetLabelPoint, FontFace.HersheySimplex, 1, OFFSET_COLOR, 2, LineType.AntiAlias);
+                        CvInvoke.PutText(currentFrame, $"Delta X,Y (pixels): {deltaX},{deltaY}", frameInfo.OffsetLabelPoint, FontFace.HersheySimplex, 0.7, OFFSET_COLOR, 2, LineType.AntiAlias);
                         // write the est distance to the frame
-                        CvInvoke.PutText(currentFrame, $"Est Dist (in): {estDistanceInches}", frameInfo.EstDistanceLabelPoint, FontFace.HersheySimplex, 1, OFFSET_COLOR, 2, LineType.AntiAlias);
+                        CvInvoke.PutText(currentFrame, $"Est Dist (inches): {estDistanceInches}", frameInfo.EstDistanceLabelPoint, FontFace.HersheySimplex, 0.7, OFFSET_COLOR, 2, LineType.AntiAlias);
 
                         // acquire a write lock (to be thread safe)
                         // fyi: the other thread is the Socket Server
@@ -1038,7 +1028,8 @@ namespace FRC4028.VisionServerV2
                 }
 
                 // add the FPS label to the frame
-                CvInvoke.PutText(currentFrame, $"FPS: {_fpsMovingAverage.Current}", frameInfo.FpsLabelPoint, FontFace.HersheySimplex, 1, FPS_COLOR, 2, LineType.AntiAlias);
+                CvInvoke.PutText(currentFrame, $"FPS: {_fpsMovingAverage.Current}", frameInfo.FpsLabelPoint, FontFace.HersheySimplex, 0.7, FPS_COLOR, 2, LineType.AntiAlias);
+                CvInvoke.PutText(currentFrame, $"MPF: {_frameStopWatch.ElapsedMilliseconds}", frameInfo.MpfLabelPoint, FontFace.HersheySimplex, 0.7, FPS_COLOR, 2, LineType.AntiAlias);
 
                 // store a snapshot (clone) of the frame for the mpeg server
                 // we need to do this because that runs async in a different thread
