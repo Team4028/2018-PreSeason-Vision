@@ -18,6 +18,7 @@ This codebase contains the following features:
 - MPEG Streaming Image Server to display live images on the dashboard
 	- supports downsizing from raw camera resolution to reduce bandwidth requirements
 - USB Blinkstick LED Status indicator
+- Distance to target estimation using a 3rd order polynomial
 
 The source code is written in C# and requires the .Net Framework v4.6.1
 

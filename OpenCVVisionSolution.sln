@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{327001D9-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{BAB77905-08D6-4321-A739-89665815CBF7}"
 	ProjectSection(SolutionItems) = preProject
+		Images\BIOS - Step 1.jpg = Images\BIOS - Step 1.jpg
+		Images\BIOS - Step 2.jpg = Images\BIOS - Step 2.jpg
 		Images\Browser - MPEG.jpg = Images\Browser - MPEG.jpg
 		Images\Minix - IPv4.jpg = Images\Minix - IPv4.jpg
 		Images\Minix - Network.jpg = Images\Minix - Network.jpg
