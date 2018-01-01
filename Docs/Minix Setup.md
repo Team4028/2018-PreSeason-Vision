@@ -4,10 +4,10 @@
 
 	(placeholder for screen shot)
 
-2. Configure IPv4 Settings for Static IP address
+2. Disable Wifi
 
-	(placeholder for screen shot)
+	![](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Images/Minix%20-%20Network.jpg)
 
-3. Disable Wifi
+3. Configure IPv4 Settings for Static IP address
 
-	(placeholder for screen shot)
+	![](https://github.com/Team4028/2018-PreSeason-Vision/blob/master/Images/Minix%20-%20IPv4.jpg)
