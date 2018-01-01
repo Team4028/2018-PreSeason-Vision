@@ -31,8 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{327001D9-3
 	ProjectSection(SolutionItems) = preProject
 		Docs\Minix Setup.md = Docs\Minix Setup.md
 		Docs\Network Tables.md = Docs\Network Tables.md
-		Docs\Remorely Viewing the Camera Stream.md = Docs\Remorely Viewing the Camera Stream.md
 		Docs\Remotely Connecting to the Vision Computer.md = Docs\Remotely Connecting to the Vision Computer.md
+		Docs\Remotely Viewing the Camera Stream.md = Docs\Remotely Viewing the Camera Stream.md
 		Docs\WIndows Service Setup.md = Docs\WIndows Service Setup.md
 	EndProjectSection
 EndProject
