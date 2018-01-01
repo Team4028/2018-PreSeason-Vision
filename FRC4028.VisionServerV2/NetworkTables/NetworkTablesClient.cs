@@ -22,7 +22,7 @@ namespace FRC4028.VisionServerV2.NetworkTables
 
         // class level working variables
         System.Threading.Timer _connectThread;
-        bool _isConnected = false;
+        bool _isConnecting = false;
 
         NetworkTablesClientBE _config;
         NetworkTable _visionDataTable;
@@ -45,8 +45,10 @@ namespace FRC4028.VisionServerV2.NetworkTables
         {
             try
             {
-                if (_visionDataTable == null || !_visionDataTable.IsConnected)
+                if (!IsConnected && !_isConnecting)
                 {
+                    _isConnecting = true;
+
                     // try to ping the networkTables server node
                     if (GeneralUtilities.PingTest(_config.ServerIPv4Address))
                     {
@@ -68,18 +70,16 @@ namespace FRC4028.VisionServerV2.NetworkTables
                         // need to pause to let infrastructure settle
                         System.Threading.Thread.Sleep(5000);
 
-                        // did we connect ok?
-                        _isConnected = _visionDataTable.IsConnected;
-                    }
-                    else
-                    {
-                        _isConnected = false;
+                        _isConnecting = false;
                     }
                 }
             }
             catch (Exception ex)
             {
-                _isConnected = false;
+                _isConnecting = false;
+            }
+            finally
+            {
             }
         }
 
@@ -89,7 +89,7 @@ namespace FRC4028.VisionServerV2.NetworkTables
         /// <param name="targetInfo">The target information.</param>
         internal void Publish(TargetInfoBE targetInfo)
         {
-            if(_isConnected)
+            if(this.IsConnected)
             {
                 try
                 {
@@ -125,9 +125,13 @@ namespace FRC4028.VisionServerV2.NetworkTables
                 catch(Exception ex)
                 {
                     _visionDataTable = null;
-                    _isConnected = false;
                 }
             }
+        }
+
+        internal bool IsConnected
+        {
+            get { return (_visionDataTable != null && _visionDataTable.IsConnected); }
         }
     }
 }
