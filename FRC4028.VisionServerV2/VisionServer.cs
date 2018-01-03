@@ -395,8 +395,11 @@ namespace FRC4028.VisionServerV2
                 // calc label positions on the frame based on camera resolution
                 System.Drawing.Point fpsLabelPoint = new System.Drawing.Point((int)(.78M * frameWidth), (int)(.91M * frameHeight));
                 System.Drawing.Point mpfLabelPoint = new System.Drawing.Point((int)(.78M * frameWidth), (int)(.96M * frameHeight));
+
                 System.Drawing.Point offsetLabelPoint = new System.Drawing.Point((int)(.08M * frameWidth), (int)(.91M * frameHeight));
-                System.Drawing.Point estDistanceLabelPoint = new System.Drawing.Point((int)(.08M * frameWidth), (int)(.96M * frameHeight));
+
+                System.Drawing.Point hiMidYLabelPoint = new System.Drawing.Point((int)(.08M * frameWidth), (int)(.04M * frameHeight));
+                System.Drawing.Point estDistanceLabelPoint = new System.Drawing.Point((int)(.08M * frameWidth), (int)(.09M * frameHeight));
 
                 // build object containing information about the frame in general
                 return new GeneralFrameInfoBE()
@@ -411,7 +414,8 @@ namespace FRC4028.VisionServerV2
                     FpsLabelPoint = fpsLabelPoint,
                     MpfLabelPoint = mpfLabelPoint,
                     OffsetLabelPoint = offsetLabelPoint,
-                    EstDistanceLabelPoint = estDistanceLabelPoint
+                    EstDistanceLabelPoint = estDistanceLabelPoint,
+                    HiMidYLabelPoint = hiMidYLabelPoint
                 };
             }
         }
@@ -920,6 +924,8 @@ namespace FRC4028.VisionServerV2
 
                         // write the offset amount to the frame
                         CvInvoke.PutText(currentFrame, $"Delta X,Y (pixels): {deltaX},{deltaY}", frameInfo.OffsetLabelPoint, FontFace.HersheySimplex, 0.7, OFFSET_COLOR, 2, LineType.AntiAlias);
+                        // write the hi mid y to the frame
+                        CvInvoke.PutText(currentFrame, $"Hi Mid Y (pixels): {centerOfTarget_Y}", frameInfo.HiMidYLabelPoint, FontFace.HersheySimplex, 0.7, OFFSET_COLOR, 2, LineType.AntiAlias);
                         // write the est distance to the frame
                         CvInvoke.PutText(currentFrame, $"Est Dist (inches): {estDistanceInches}", frameInfo.EstDistanceLabelPoint, FontFace.HersheySimplex, 0.7, OFFSET_COLOR, 2, LineType.AntiAlias);
 
@@ -1032,8 +1038,8 @@ namespace FRC4028.VisionServerV2
                 }
 
                 // add the FPS label to the frame
-                CvInvoke.PutText(currentFrame, $"FPS: {_fpsMovingAverage.Current}", frameInfo.FpsLabelPoint, FontFace.HersheySimplex, 0.7, FPS_COLOR, 2, LineType.AntiAlias);
-                CvInvoke.PutText(currentFrame, $"MPF: {_frameStopWatch.ElapsedMilliseconds}", frameInfo.MpfLabelPoint, FontFace.HersheySimplex, 0.7, FPS_COLOR, 2, LineType.AntiAlias);
+                CvInvoke.PutText(currentFrame, $" FPS: {_fpsMovingAverage.Current}", frameInfo.FpsLabelPoint, FontFace.HersheySimplex, 0.7, FPS_COLOR, 2, LineType.AntiAlias);
+                CvInvoke.PutText(currentFrame, $"msPF: {_frameStopWatch.ElapsedMilliseconds}", frameInfo.MpfLabelPoint, FontFace.HersheySimplex, 0.7, FPS_COLOR, 2, LineType.AntiAlias);
 
                 // store a snapshot (clone) of the frame for the mpeg server
                 // we need to do this because that runs async in a different thread

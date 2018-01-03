@@ -150,14 +150,17 @@ namespace FRC4028.VisionServerV2.StatusLED
                     // decide what color to use & blink the leds
                     if (!targetInfo.IsTargetInFOV)
                     {
-                        _blinkStick.SetColors(0, LEDS_RED);
+                        // target is not in the FOV
+                        _blinkStick.SetColors(0, LEDS_RAINBOW);
                     }
                     else if (targetInfo.Delta_X <= _configData.OnTargetThreshold)
                     {
+                        // target is centered w/i the threshold
                         _blinkStick.SetColors(0, LEDS_GREEN);
                     }
                     else
                     {
+                        // target is in fov but not centered w/i the threshold
                         _blinkStick.SetColors(0, LEDS_BLUE);
                     }
 
