@@ -11,7 +11,7 @@ using FRC4028.VisionServerV2.Entities;
 namespace FRC4028.VisionServerV2.StatusLED
 {
     /*
-     * This class is a wrapper around interfacing to a BlickStick device (LED attached to USB port)
+     * This class is a wrapper around interfacing to a BlinkStick device (LED attached to USB port)
      *
      * Target
      *  w/i Center DeadBand     Green
@@ -19,7 +19,7 @@ namespace FRC4028.VisionServerV2.StatusLED
      *  Not in FOV              Red
      *  
      * Framerate
-     *  w/i 5% of target
+     *  w/i 25% of target
      *  too slow
      *  
      * https://arvydas.github.io/BlinkStickDotNet/namespace_blink_stick_dot_net.html
@@ -47,13 +47,64 @@ namespace FRC4028.VisionServerV2.StatusLED
             // Control individually addressable LEDs, for example any WS2812, Adafruit NeoPixels and smart pixels.
             WS2812 = 2
         }
+        
+        // define 8x3 arrays for each color so we can turn all 8 LEDs on
+        static byte[] LEDS_RAINBOW = new byte[3 * 8]
+               {0, 0, 255,    //GRB for led0
+			    0, 128, 0,    //GRB for led1
+			    128, 0, 0,    //...
+			    128, 255, 0,
+                0, 255, 128,
+                128, 0, 128,
+                0, 128, 255,
+                128, 0, 0    //GRB for led7
+                };
 
-        // http://www.cloford.com/resources/colours/500col.htm
-        RgbColor Green = RgbColor.FromRgb(0, 201, 87);      // w/i Center DeadBand 
-        RgbColor Blue = RgbColor.FromRgb(30, 144, 255);     // In FOV
-        RgbColor Red = RgbColor.FromRgb(255, 131, 250);     // Not in FOV  
+        static byte[] LEDS_RED = new byte[3 * 8]
+               {0, 255, 0,    //GRB for led0
+				0, 255, 0,    //GRB for led1
+				0, 255, 0,    //...
+				0, 255, 0,
+                0, 255, 0,
+                0, 255, 0,
+                0, 255, 0,
+                0, 255, 0    //GRB for led7
+               };
 
-        const decimal FPS_DEADBAND = 10.0M; // 10% error   20 FPS => 18 FPS
+        static byte[] LEDS_BLUE = new byte[3 * 8]
+               {0, 0, 255,    //GRB for led0
+				0, 0, 255,    //GRB for led1
+				0, 0, 255,    //...
+				0, 0, 255,
+                0, 0, 255,
+                0, 0, 255,
+                0, 0, 255,
+                0, 0, 255    //GRB for led7
+                };
+
+        static byte[] LEDS_GREEN = new byte[3 * 8]
+               {255, 0, 0,    //GRB for led0
+				255, 0, 0,    //GRB for led1
+				255, 0, 0,    //...
+				255, 0, 0,
+                255, 0, 0,
+                255, 0, 0,
+                255, 0, 0,
+                255, 0, 0    //GRB for led7
+               };
+
+        static byte[] LEDS_OFF = new byte[3 * 8]
+               {0, 0, 0,    //GRB for led0
+				0, 0, 0,    //GRB for led1
+				0, 0, 0,    //...
+				0, 0, 0,
+                0, 0, 0,
+                0, 0, 0,
+                0, 0, 0,
+                0, 0, 0    //GRB for led7
+               };
+
+        const decimal FPS_DEADBAND = 25.0M; // 25% error   25 FPS => 20 FPS
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BlinkStickController"/> class.
@@ -68,7 +119,7 @@ namespace FRC4028.VisionServerV2.StatusLED
             if (_blinkStick != null && _blinkStick.OpenDevice())
             {
 
-                _blinkStick.SetMode((int)BLINKSTICK_MODE.Normal);
+                _blinkStick.SetMode((int)BLINKSTICK_MODE.WS2812);
 
                 // if we find a blinkstick, force it off initially
                 _blinkStick.TurnOff();
@@ -83,35 +134,41 @@ namespace FRC4028.VisionServerV2.StatusLED
         {
             if (this.IsAvailable)
             {
-                // determine if we should single or double flash the LED
-                int repeatCount = 1;
-
-                // calc error % (10% = 10)
-                decimal fpsErrorPercent = Math.Abs((decimal)((_targetFPS - targetInfo.FramesPerSec) / _targetFPS) * 100);
-
-                if (fpsErrorPercent > FPS_DEADBAND)
+                try
                 {
-                    repeatCount = 2;
-                }
+                    // determine if we should single or double flash the LED
+                    int repeatCount = 1;
 
-                // decide what color to use
-                RgbColor colorToUse = null;
+                    // calc error % (10% = 10)
+                    decimal fpsErrorPercent = Math.Abs((decimal)((_targetFPS - targetInfo.FramesPerSec) / _targetFPS) * 100);
 
-                if(!targetInfo.IsTargetInFOV)
-                {
-                    colorToUse = Red;
-                }
-                else if (targetInfo.Delta_X <= _configData.OnTargetThreshold)
-                {
-                    colorToUse = Green;
-                }
-                else
-                {
-                    colorToUse = Blue;
-                }
+                    if (fpsErrorPercent > FPS_DEADBAND)
+                    {
+                        repeatCount = 2;
+                    }
 
-                // blink the LED
-                _blinkStick.Blink(colorToUse, repeatCount, 250);
+                    // decide what color to use & blink the leds
+                    if (!targetInfo.IsTargetInFOV)
+                    {
+                        _blinkStick.SetColors(0, LEDS_RED);
+                    }
+                    else if (targetInfo.Delta_X <= _configData.OnTargetThreshold)
+                    {
+                        _blinkStick.SetColors(0, LEDS_GREEN);
+                    }
+                    else
+                    {
+                        _blinkStick.SetColors(0, LEDS_BLUE);
+                    }
+
+                    _blinkStick.WaitThread(500);
+                    _blinkStick.SetColors(0, LEDS_OFF);
+                }
+                catch
+                {
+                    // swallow exception likely caused if blinkstick is unplugged
+                    _blinkStick = null;
+                }
             }
         }
 
@@ -121,7 +178,22 @@ namespace FRC4028.VisionServerV2.StatusLED
         /// <value><c>true</c> if this instance is available; otherwise, <c>false</c>.</value>
         public bool IsAvailable
         {
-            get { return (_blinkStick != null && _blinkStick.Connected); }
+            get
+            {
+                return (_blinkStick != null && _blinkStick.Connected);
+            }
+        }
+
+        /// <summary>
+        /// Cleans up.
+        /// </summary>
+        public void CleanUp()
+        {
+            if(IsAvailable)
+            {
+                _blinkStick.TurnOff();
+                _blinkStick.Dispose();
+            }
         }
     }
 }

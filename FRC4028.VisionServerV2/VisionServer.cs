@@ -275,6 +275,10 @@ namespace FRC4028.VisionServerV2
                 }
                 catch { }
             }
+            if(_blinkStickCtlr != null)
+            {
+                _blinkStickCtlr.CleanUp();
+            }
         }
 
         /// <summary>
