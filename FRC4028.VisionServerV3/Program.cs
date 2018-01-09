@@ -30,8 +30,8 @@ namespace FRC4028.VisionServerV3
                 x.RunAsLocalSystem();
 
                 x.SetDescription("FRC Team 4028 Vision Data Server V3");
-                x.SetDisplayName("BeakSquad Vision V2");
-                x.SetServiceName("4028VisionServerV2");
+                x.SetDisplayName("BeakSquad Vision V3");
+                x.SetServiceName("4028VisionServerV3");
                 x.StartAutomatically();     // Start the service automatically
             });
         }
