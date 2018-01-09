@@ -58,6 +58,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{BAB779
 		Images\Win Svc Stop.jpg = Images\Win Svc Stop.jpg
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRC4028.VisionServerV3", "FRC4028.VisionServerV3\FRC4028.VisionServerV3.csproj", "{D572238E-4A88-44DC-95D3-6AAFC668B698}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B9DC42B-2C3A-4D03-BDC0-9B60001F4D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D572238E-4A88-44DC-95D3-6AAFC668B698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D572238E-4A88-44DC-95D3-6AAFC668B698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D572238E-4A88-44DC-95D3-6AAFC668B698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D572238E-4A88-44DC-95D3-6AAFC668B698}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

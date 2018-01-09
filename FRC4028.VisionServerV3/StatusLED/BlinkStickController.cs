@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using BlinkStickDotNet;
 
-using FRC4028.VisionServerV2.Entities;
+using FRC4028.VisionServerV3.Entities;
 
-namespace FRC4028.VisionServerV2.StatusLED
+namespace FRC4028.VisionServerV3.StatusLED
 {
     /*
      * This class is a wrapper around interfacing to a BlinkStick device (LED attached to USB port)
@@ -35,7 +35,6 @@ namespace FRC4028.VisionServerV2.StatusLED
         // global working values
         BlinkStick _blinkStick;
         USBBlinkStickBE _configData;
-        int _targetFPS;
 
         // enums and constants
         enum BLINKSTICK_MODE
@@ -109,10 +108,9 @@ namespace FRC4028.VisionServerV2.StatusLED
         /// <summary>
         /// Initializes a new instance of the <see cref="BlinkStickController"/> class.
         /// </summary>
-        public BlinkStickController(USBBlinkStickBE configData, int targetFPS)
+        public BlinkStickController(USBBlinkStickBE configData)
         {
             _configData = configData;
-            _targetFPS = targetFPS;
 
             _blinkStick = BlinkStick.FindFirst();
 
@@ -130,7 +128,7 @@ namespace FRC4028.VisionServerV2.StatusLED
         /// Toggles the led.
         /// </summary>
         /// <param name="targetInfo">The target information.</param>
-        public void ToggleLED(TargetInfoBE targetInfo)
+        public void ToggleLED()
         {
             if (this.IsAvailable)
             {
@@ -140,30 +138,10 @@ namespace FRC4028.VisionServerV2.StatusLED
                     int repeatCount = 1;
 
                     // calc error % (10% = 10)
-                    decimal fpsErrorPercent = Math.Abs((decimal)((_targetFPS - targetInfo.FramesPerSec) / _targetFPS) * 100);
+                    //decimal fpsErrorPercent = Math.Abs((decimal)((_targetFPS - targetInfo.FramesPerSec) / _targetFPS) * 100);
 
-                    if (fpsErrorPercent > FPS_DEADBAND)
-                    {
-                        repeatCount = 2;
-                    }
-
-                    // decide what color to use & blink the leds
-                    if (!targetInfo.IsTargetInFOV)
-                    {
-                        // target is not in the FOV
-                        _blinkStick.SetColors(0, LEDS_RAINBOW);
-                    }
-                    else if (Math.Abs(targetInfo.Delta_X) <= _configData.OnTargetThreshold)
-                    {
-                        // target is centered w/i the threshold
-                        _blinkStick.SetColors(0, LEDS_GREEN);
-                    }
-                    else
-                    {
-                        // target is in fov but not centered w/i the threshold
-                        _blinkStick.SetColors(0, LEDS_BLUE);
-                    }
-
+                    // target is centered w/i the threshold
+                    _blinkStick.SetColors(0, LEDS_GREEN);
                     _blinkStick.WaitThread(500);
                     _blinkStick.SetColors(0, LEDS_OFF);
                 }

@@ -1,0 +1,40 @@
+﻿{
+  "target_cameras": {
+    "target_fps": 50,
+    "left_camera": {
+      "usb_camera_id": 0,
+      "is_enabled": true,
+      "horizontal_resolution": 640,
+      "vertical_resolution": 480,
+      "brightness": 120,
+      "contrast": 128,
+      "sharpness": null,
+      "saturation": 128,
+      "exposure": 100,
+      "gain": 0
+    },
+    "right_camera": {
+      "usb_camera_id": 2,
+      "is_enabled": true,
+      "horizontal_resolution": 640,
+      "vertical_resolution": 480,
+      "brightness": 120,
+      "contrast": 128,
+      "sharpness": null,
+      "saturation": 128,
+      "exposure": 100,
+      "gain": 0
+    }
+  },
+  "mpeg_server": {
+    "is_enabled": true,
+    "tcp_port": 8080,
+    "image_width": 1280,
+    "image_height": 480
+  },
+  "usb_blink_stick": {
+    "is_enabled": true,
+    "on_target_threshold": 100,
+    "heartbeat_interval_msec": 1000
+  }
+}

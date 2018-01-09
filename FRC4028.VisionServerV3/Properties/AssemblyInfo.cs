@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FRC4028.VisionServerV2")]
-[assembly: AssemblyDescription("Target Recognition and Vision Server for 2017 Season Competition Stronghold")]
+[assembly: AssemblyTitle("FRC4028.VisionServerV3")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CHCA FRC Team 4028 The Beak Squad")]
-[assembly: AssemblyProduct("FRC4028.VisionServerV2")]
-[assembly: AssemblyCopyright("Copyright ©2018")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("FRC4028.VisionServerV3")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6b9dc42b-2c3a-4d03-bdc0-9b60001f4d17")]
+[assembly: Guid("d572238e-4a88-44dc-95d3-6aafc668b698")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.3.18003.2222")]
-[assembly: AssemblyFileVersion("2.3.18003.2222")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
